@@ -80,5 +80,3 @@ while True:
     else:
         print('\033[31mA opção não existe\033[m')
         sleep(2)
-# ARRUMAR O EXTRATO DA CONTA
-# SEGUIR A MESMA LOGICA, USANDO O BUSCAR_CONTA E DEPOIS APLICANDO TRY E A FUNCAO exibir_historico
