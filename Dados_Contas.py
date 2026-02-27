@@ -48,10 +48,19 @@ Cria uma conta bancaria e permite fazer saques, depósitos, transferências e ve
 # FUNCÕES
 
 def salvar_arquivo(contas):
+    """
+    Salva as contas criadas e as alterações feitas em um arquivo json
+    :param contas: contas criadas
+    :return: None
+    """
     with open('contas.json', 'w') as f:
         json.dump([conta.para_dict() for conta in contas], f, indent=4)
 
 def menu():
+    """
+    Mostra um menu para selecionar as opções disponibilizadas ao usuario
+    :return: A opção escolhida
+    """
     print("»«"*15)
     print("\033[33m1 — Criar conta\n"
           "2 — Depositar\n"
@@ -64,6 +73,12 @@ def menu():
     return esc
 
 def criar_conta(numero_conta, conta):
+    """
+    Cria uma conta e salva em um arquivo JSON
+    :param numero_conta: ID da conta
+    :param conta: Lista de contas criadas
+    :return: None
+    """
     historico = []
     nome_conta = input('Digite seu nome: ').strip().capitalize().title()
     saldo_inicial = 200 #Valor obrigatorio a ser depositado para abrir a conta
@@ -72,6 +87,11 @@ def criar_conta(numero_conta, conta):
     salvar_arquivo(conta)
 
 def buscar_conta(contas):
+    """
+    Faz uma busca para saber se uma conta existe ou não
+    :param contas: lista de contas criadas
+    :return: A conta se ela existir
+    """
     id = int(input('Digite o id da conta: '))
     for conta in contas:
         if conta.id == id:
